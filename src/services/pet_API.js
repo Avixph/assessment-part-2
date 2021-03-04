@@ -15,7 +15,7 @@ export async function GetCatAPI() {
   const CatAPI = `${CAT_API_URL}/v1/images/search?api_key=${CAT_API_KEY}`;
 
   const Results = await axios.get(CatAPI).then(({ data }) => {
-    return data[0];
+    return data;
   });
 
   return Results;

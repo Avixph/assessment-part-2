@@ -8,7 +8,7 @@ export default function Cats() {
 
   const fetchRandomCat = async () => {
     const randCat = await GetCatAPI();
-    setCat(randCat.data[0].url);
+    setCat(randCat[0].url);
   };
   useEffect(() => {
     fetchRandomCat();
