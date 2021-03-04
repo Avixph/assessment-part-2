@@ -1,13 +1,8 @@
 import axios from "axios";
-import {
-  DOG_API_URL,
-  DOG_API_KEY,
-  CAT_API_URL,
-  CAT_API_KEY,
-} from "./Constants.js";
+import { DOG_API_URL, CAT_API_URL, CAT_API_KEY } from "./constants.js";
 
 export async function GetDogAPI() {
-  const DogAPI = `${DOG_API_URL}/v1/breeds?api_key=${DOG_API_KEY}`;
+  const DogAPI = `${DOG_API_URL}/api/breeds/image/random`;
 
   const Results = await axios.get(DogAPI).then(({ data }) => {
     return data;
@@ -17,10 +12,10 @@ export async function GetDogAPI() {
 }
 
 export async function GetCatAPI() {
-  const RandomAPI = `${CAT_API_URL}/v1/breeds?api_key=${CAT_API_KEY}`;
+  const CatAPI = `${CAT_API_URL}/v1/images/search?api_key=${CAT_API_KEY}`;
 
-  const Results = await axios.get(DogAPI).then(({ data }) => {
-    return data;
+  const Results = await axios.get(CatAPI).then(({ data }) => {
+    return data[0];
   });
 
   return Results;
